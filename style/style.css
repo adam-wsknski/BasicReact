@@ -9,15 +9,23 @@
 
 .video-item img {
   max-width: 64px;
+  float: left;
 }
 
 .video-detail .details {
   margin-top: 10px;
+  margin-right: 0;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
+  float: left;
 }
 
+.list-group {
+  float: left;
+  margin-top: -400px;
+
+}
 .list-group-item {
   cursor: pointer;
 }

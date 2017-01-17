@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import _ from 'lodash';
 import VideoList from './components/VideoList';
+import VideoLista from './components/VideoLista2';
+
 import VideoDetail from './components/VideoDetail';
 import SearchBar from './components/SearchBar';
 import YTSearch from 'youtube-api-search';
@@ -29,9 +32,14 @@ class App extends Component  {
 
 
   render() {
+    const videoSearch = _.debounce((term) => { this.videoSearch(term) }, 300);
+
     return (
       <div>
-        <SearchBar onSearchTermChange={term => this.videoSearch(term)} />
+        <SearchBar onSearchTermChange={videoSearch} />
+        {/* <VideoLista
+          onVideoSelect={selectedVideo => this.setState({selectedVideo})}
+          videos={this.state.videos} /> */}
         <VideoDetail video={this.state.selectedVideo} />
         <VideoList
           onVideoSelect={selectedVideo => this.setState({selectedVideo})}
